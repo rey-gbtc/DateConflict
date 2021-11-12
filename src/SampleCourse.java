@@ -1,7 +1,9 @@
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class SampleCourse {
     String courseName;
@@ -65,6 +67,22 @@ public class SampleCourse {
     public String getSlashFormatDate(LocalDateTime localDateTime){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return localDateTime.format(formatter);
+    }
+
+    public ArrayList<LocalDateTime> getDateRanges(ArrayList<DayOfWeek> meetingDays){
+        ArrayList<LocalDateTime> courseDateTimes = new ArrayList<>();
+
+        // Create day 1 and add to array list
+        LocalDateTime dayOneStart = LocalDateTime.of(startDate, startTime);
+        LocalDateTime dayOneEnd = LocalDateTime.of(startDate, endTime);
+
+        // Create day 2 to identify pattern
+        LocalDateTime dayTwoStart = dayOneStart.plusDays(1);
+        System.out.println(dayOneStart);
+        System.out.println(dayTwoStart);
+
+        // change, duh
+        return null;
     }
 
 }
